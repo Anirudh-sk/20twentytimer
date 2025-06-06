@@ -1,0 +1,347 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Follow the 20-20-20 rule to reduce digital eye strain: Every 20 minutes, take a 20-second break and focus your eyes on something 20 feet away. Our scientifically-backed timer helps protect your eye health." />
+    <meta name="keywords" content="20-20-20 rule, eye strain, computer vision syndrome, eye health, digital eye strain, office workers, IT professionals, eye care, eye exercise, vision health, eye break timer, eye rest timer" />
+    <meta name="author" content="20-20-20 Timer" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="20-20-20 Eye Care Timer - Protect Your Vision" />
+    <meta property="og:description" content="Combat digital eye strain with our scientifically-proven 20-20-20 timer. Take regular breaks, protect your vision, and boost productivity." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://20twentytimer.netlify" />
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="20-20-20 Eye Care Timer - Your Digital Vision Guardian" />
+    <meta name="twitter:description" content="Protect your eyes from digital strain with our smart 20-20-20 timer. Scientific approach to maintaining healthy vision in the digital age." />
+    <meta name="twitter:image" content="img/screenshot1.png" />
+    
+    <!-- Structured Data -->
+   <!-- PWA Manifest -->
+    <script>
+      // Inline manifest to avoid external file dependency
+      const manifestData = {
+        "name": "20-20-20 Eye Care Timer",
+        "short_name": "Eye Timer",
+        "description": "Protect your vision with the 20-20-20 rule timer",
+        "start_url": "https://20twentytimer.netlify.app",
+        "display": "standalone",
+        "background_color": "#1a1a2e",
+        "theme_color": "#6c5ce7",
+        "icons": [
+          {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTkyIiBoZWlnaHQ9IjE5MiIgdmlld0JveD0iMCAwIDE5MiAxOTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjE5MiIgaGVpZ2h0PSIxOTIiIHJ4PSI0MCIgZmlsbD0iIzZjNWNlNyIvPjxjaXJjbGUgY3g9Ijk2IiBjeT0iOTYiIHI9IjY0IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIvPjxsaW5lIHgxPSI5NiIgeTE9IjQwIiB4Mj0iOTYiIHkyPSI5NiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxsaW5lIHgxPSI5NiIgeTE9Ijk2IiB4Mj0iMTQwIiB5Mj0iMTQwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iOCIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+PGNpcmNsZSBjeD0iOTYiIGN5PSI5NiIgcj0iOCIgZmlsbD0iI2ZmZmZmZiIvPjwvc3ZnPg==",
+            "sizes": "192x192",
+            "type": "image/svg+xml"
+          },
+          {
+            "src": "data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjUxMiIgaGVpZ2h0PSI1MTIiIHJ4PSIxMDAiIGZpbGw9IiM2YzVjZTciLz48Y2lyY2xlIGN4PSIyNTYiIGN5PSIyNTYiIHI9IjE2MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIwIi8+PGxpbmUgeDE9IjI1NiIgeTE9IjEwMCIgeDI9IjI1NiIgeTI9IjI1NiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIwIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz48bGluZSB4MT0iMjU2IiB5MT0iMjU2IiB4Mj0iMzYwIiB5Mj0iMzYwIiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMjAiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjI1NiIgY3k9IjI1NiIgcj0iMjAiIGZpbGw9IiNmZmZmZmYiLz48L3N2Zz4=",
+            "sizes": "512x512",
+            "type": "image/svg+xml"
+          }
+        ]
+      };
+      
+      // Create blob URL for manifest
+      const manifestBlob = new Blob([JSON.stringify(manifestData)], {type: 'application/json'});
+      const manifestURL = URL.createObjectURL(manifestBlob);
+      
+      // Add manifest link to head
+      const link = document.createElement('link');
+      link.rel = 'manifest';
+      link.href = manifestURL;
+      document.head.appendChild(link);
+    </script>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css" />
+    
+    <!-- PWA Support -->
+    <meta name="theme-color" content="#1a1a2e">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="20-20-20 Timer">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9IiM2YzVjZTciLz4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIxNiIgeTE9IjgiIHgyPSIxNiIgeTI9IjE2IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIxNiIgeTE9IjE2IiB4Mj0iMjIiIHkyPSIyMiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPgo=" type="image/svg+xml" />
+    <link rel="apple-touch-icon" sizes="180x180" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjE4MCIgdmlld0JveD0iMCAwIDE4MCAxODAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIxODAiIGhlaWdodD0iMTgwIiByeD0iNDAiIGZpbGw9IiM2YzVjZTciLz4KPGNpcmNsZSBjeD0iOTAiIGN5PSI5MCIgcj0iNjAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSI4Ii8+CjxsaW5lIHgxPSI5MCIgeTE9IjQwIiB4Mj0iOTAiIHkyPSI5MCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8bGluZSB4MT0iOTAiIHkxPSI5MCIgeDI9IjEzMCIgeTI9IjEzMCIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjgiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSI5MCIgY3k9IjkwIiByPSI4IiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPgo=">
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTQiIGZpbGw9IiM2YzVjZTciLz4KPGNpcmNsZSBjeD0iMTYiIGN5PSIxNiIgcj0iMTIiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIyIi8+CjxsaW5lIHgxPSIxNiIgeTE9IjgiIHgyPSIxNiIgeTI9IjE2IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSIxNiIgeTE9IjE2IiB4Mj0iMjIiIHkyPSIyMiIgc3Ryb2tlPSIjZmZmZmZmIiBzdHJva2Utd2lkdGg9IjIiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPgo8Y2lyY2xlIGN4PSIxNiIgY3k9IjE2IiByPSIyIiBmaWxsPSIjZmZmZmZmIi8+Cjwvc3ZnPgo=">
+    <link rel="icon" type="image/png" sizes="16x16" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTYiIGhlaWdodD0iMTYiIHZpZXdCb3g9IjAgMCAxNiAxNiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjciIGZpbGw9IiM2YzVjZTciLz4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjYiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxIi8+CjxsaW5lIHgxPSI4IiB5MT0iNCIgeDI9IjgiIHkyPSI4IiBzdHJva2U9IiNmZmZmZmYiIHN0cm9rZS13aWR0aD0iMSIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIi8+CjxsaW5lIHgxPSI4IiB5MT0iOCIgeDI9IjExIiB5Mj0iMTEiIHN0cm9rZT0iI2ZmZmZmZiIgc3Ryb2tlLXdpZHRoPSIxIiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPGNpcmNsZSBjeD0iOCIgY3k9IjgiIHI9IjEiIGZpbGw9IiNmZmZmZmYiLz4KPC9zdmc+Cg==">
+    
+    
+    <title>20-20-20 Timer - Protect Your Vision with Scientific Eye Care</title>
+  </head>
+  <body class="dark-mode">
+    <div class="page-wrapper">
+      <header class="header">
+        <nav class="navbar navbar-expand-lg">
+          <div class="container-fluid">
+            <h1 class="navbar-brand name">20-20-20 timer</h1>
+            <div class="nav-buttons">
+              <button class="btn nav-btn" id="settings" aria-label="Settings">
+                <svg class="btn-icon">
+                  <use href="img/settings-outline.svg#set"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="settings hidden">
+          <div class="settings-content">
+            <h4 class="settings-title">Adjust Timer</h4>
+            <div class="settings-form">
+              <div class="setting-group">
+                <p>Every <span id="min-span" class="setting-value">20</span> minutes</p>
+                <input class="settings__input" id="min-input" name="min" type="range" min="1" max="60" value="20" />
+              </div>
+              <div class="setting-group">
+                <p>look away for <span id="sec-span" class="setting-value">20</span> seconds</p>
+                <input class="settings__input" id="sec-input" name="sec" type="range" min="1" max="60" value="20" />
+              </div>
+              <div class="settings__sound">
+                <label for="drop">Choose alarm sound:</label>
+                <select class="settings__sound-drop form-select" name="drop">
+                  <option value="2995">🌊 Ocean Waves</option>
+                  <option value="3010">🔔 Crystal Clear</option>
+                  <option value="2402">📯 Classic Horn</option>
+                  <option value="2476">🐦 Morning Birds</option>
+                  <option value="2983">🎹 Piano Note</option>
+                  <option value="3005">🌟 Cosmic Pulse</option>
+                  <option value="3015">🌳 Forest Echo</option>
+                </select>
+              </div>
+            </div>
+            <div class="settings__btns">
+              <button class="btn btn-danger" id="close">Close</button>
+              <button class="btn btn-success" id="save">Save</button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <main class="main-content">
+        <section class="timer-section">
+          <div class="timer">
+            <svg class="circle-progress" viewBox="0 0 512 512">
+              <circle cx="256" cy="256" r="192" class="background-circle" />
+              <circle cx="256" cy="256" r="192" class="progress-indicator" />
+            </svg>
+            <div class="timer__content">
+              <div class="timer__time">
+                <h2 class="timer__time-left"></h2>
+              </div>
+              <div class="timer__buttons">
+                <button class="btn timer__button" id="stop" aria-label="Stop Timer">
+                  <svg class="btn-icon"><use href="img/stop-outline.svg#stop"></use></svg>
+                </button>
+                <button class="btn timer__button" id="play" aria-label="Start Timer">
+                  <svg class="btn-icon"><use href="img/play-outline.svg#play"></use></svg>
+                </button>
+                <button class="btn timer__button hidden" id="pause" aria-label="Pause Timer">
+                  <svg class="btn-icon"><use href="img/pause-outline.svg#pause"></use></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="info-section">
+          <div class="info-card">
+            <h2 class="info-title">Protect Your Vision</h2>
+            <div class="info-content">
+              <p class="feature-text">
+                Follow the <span class="highlight">20-20-20 rule</span>: Every <span class="highlight">20</span> minutes,
+                take a <span class="highlight">20</span>-second break and focus your eyes on something
+                <span class="highlight">20</span> feet (6 meters) away.
+              </p>
+              <div class="benefits">
+                <h3>Benefits:</h3>
+                <ul class="benefits-list">
+                  <li>Reduces digital eye strain</li>
+                  <li>Prevents computer vision syndrome</li>
+                  <li>Improves focus and productivity</li>
+                  <li>Maintains long-term eye health</li>
+                </ul>
+              </div>
+              <p class="instruction-text">
+                When you hear the alarm, look away from your screen and focus on a distant object.
+                The timer will notify you when it's time to resume your work.
+              </p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+
+      <!-- Enhanced Content Section -->
+      <section class="content-section py-5 bg-dark">
+        <div class="container">
+          <!-- Statistics Row -->
+          <div class="row mb-5">
+            <div class="col-12 text-center mb-4">
+              <h2 class="section-title display-5">Why Eye Care Matters</h2>
+              <p class="lead text-muted">Digital eye strain affects millions of people worldwide</p>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="stats-card">
+                <div class="stat-number">50%</div>
+                <div class="stat-label">of computer users experience eye strain</div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="stats-card" style="background: var(--gradient-2);">
+                <div class="stat-number">8+</div>
+                <div class="stat-label">hours daily screen time average</div>
+              </div>
+            </div>
+            <div class="col-md-4 mb-4">
+              <div class="stats-card" style="background: var(--gradient-3);">
+                <div class="stat-number">68%</div>
+                <div class="stat-label">report improved comfort with breaks</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature Cards -->
+          <div class="row">
+            <div class="col-lg-6 mb-4">
+              <div class="gradient-border">
+                <div class="card h-100">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="bi bi-eye feature-icon me-3"></i>
+                      <h3 class="card-title mb-0">Understanding Digital Eye Strain</h3>
+                    </div>
+                    <p class="card-text">Digital eye strain affects over 50% of computer users. Symptoms include headaches, blurred vision, and dry eyes. The American Optometric Association recommends the 20-20-20 rule to reduce eye fatigue.</p>
+                    
+                    <div class="mt-3">
+                      <h3 class="text-info mb-6">The 20-20-20 Rule:</h3>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-clock text-warning me-2"></i>Every 20 minutes</li>
+                        <li class="mb-2"><i class="bi bi-binoculars text-success me-2"></i>Look at something 20 feet away</li>
+                        <li class="mb-2"><i class="bi bi-stopwatch text-info me-2"></i>For at least 20 seconds</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+              <div class="gradient-border">
+                <div class="card h-100">
+                  <div class="card-body p-4">
+                    <div class="d-flex align-items-center mb-3">
+                      <i class="bi bi-heart-pulse feature-icon me-3"></i>
+                      <h3 class="card-title mb-0">Long-term Eye Health Benefits</h3>
+                    </div>
+                    <p class="card-text">Regular use of the 20-20-20 rule provides significant long-term benefits for your vision and overall eye health.</p>
+                    
+                    <div class="mt-3">
+                      <h3 class="text-success mb-2">Prevention Benefits:</h3>
+                      <div class="row">
+                        <div class="col-12 mb-2">
+                          <i class="bi bi-shield-check text-primary me-2"></i>
+                          Computer Vision Syndrome
+                        </div>
+                        <div class="col-12 mb-2">
+                          <i class="bi bi-shield-check text-primary me-2"></i>
+                          Myopia progression
+                        </div>
+                        <div class="col-12 mb-2">
+                          <i class="bi bi-shield-check text-primary me-2"></i>
+                          Chronic dry eye syndrome
+                        </div>
+                        <div class="col-12 mb-2">
+                          <i class="bi bi-shield-check text-primary me-2"></i>
+                          Reduced headaches and fatigue
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tips Section -->
+          <div class="row mt-5">
+            <div class="col-12">
+              <div class="card">
+                <div class="card-header bg-transparent">
+                  <h3 class="card-title mb-0 text-center">
+                    <i class="bi bi-lightbulb feature-icon me-2"></i>
+                    Additional Eye Care Tips
+                  </h3>
+                </div>
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3 class="text-warning mb-3">Environmental Adjustments</h3>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-brightness-high text-yellow me-2"></i>Adjust screen brightness to match surroundings</li>
+                        <li class="mb-2"><i class="bi bi-sun text-orange me-2"></i>Position screen perpendicular to windows</li>
+                        <li class="mb-2"><i class="bi bi-droplet text-blue me-2"></i>Use a humidifier to prevent dry eyes</li>
+                        <li class="mb-2"><i class="bi bi-fonts text-purple me-2"></i>Increase text size for comfortable reading</li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <h3 class="text-info mb-3">Healthy Habits</h3>
+                      <ul class="list-unstyled">
+                        <li class="mb-2"><i class="bi bi-eye text-green me-2"></i>Blink frequently to moisten eyes</li>
+                        <li class="mb-2"><i class="bi bi-cup-hot text-brown me-2"></i>Stay hydrated throughout the day</li>
+                        <li class="mb-2"><i class="bi bi-moon text-indigo me-2"></i>Get adequate sleep for eye recovery</li>
+                        <li class="mb-2"><i class="bi bi-person-check text-teal me-2"></i>Schedule regular eye examinations</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dark Mode Toggle -->
+      <div class="dark-mode-toggle" title="Toggle Dark/Light Mode">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M12 3a9 9 0 109 9c0-.46-.04-.92-.1-1.36a5.389 5.389 0 01-4.4 2.26 5.403 5.403 0 01-3.14-9.8c-.44-.06-.9-.1-1.36-.1z"></path>
+        </svg>
+      </div>
+
+      <!-- PWA Install Prompt -->
+      <div class="install-prompt">
+        <div class="install-content">
+          <span class="me-3">
+            <i class="bi bi-download me-1"></i>
+            Install this app for quick access
+          </span>
+          <div class="install-buttons">
+            <button id="install-btn" class="btn btn-primary btn-sm me-2">Install</button>
+            <button id="dismiss-btn" class="btn btn-secondary btn-sm">Not now</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Custom JS -->
+    <script defer src="js/script.js"></script>
+  </body>
+</html>
